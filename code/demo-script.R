@@ -9,3 +9,13 @@
 
 library(dplyr)
 library(ggplot2)
+
+dat <- read.csv("data/nba2018-players.csv")
+
+warriors <- dat %>%
+  filter(team == "GSW") %>%
+  arrange(salary)
+
+write.csv(warriors, 
+          file = "data/warriors.csv", 
+          row.names = FALSE)
